@@ -1,0 +1,26 @@
+spring:
+  profiles:
+    active: region1
+  application:
+    name: eureka-server
+---
+spring:
+  profiles: region1
+server:
+  port: 7001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://cloudcan:7002/eureka/
+    region: test1
+---
+spring:
+  profiles: region2
+server:
+  port: 7002
+eureka:
+  client:
+    service-url:
+      defaultZone: http://cloudcan:7001/eureka/
+    region: test2
+

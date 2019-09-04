@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: demo-consumer
+  profiles:
+    active: region1
+---
+spring:
+  profiles: region1
+server:
+  port: 9001
+eureka:
+  client:
+    service-url:
+      defaultZone: http://cloudcan:7001/eureka/,http://cloudcan:7002/eureka/
+    region: test1
+---
+spring:
+  profiles: region2
+server:
+  port: 9002
+eureka:
+  client:
+    service-url:
+      defaultZone: http://cloudcan:7001/eureka/,http://cloudcan:7002/eureka/
+    region: test2
